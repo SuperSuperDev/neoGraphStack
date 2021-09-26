@@ -1,24 +1,26 @@
 {
-  "name": "neographfullstack",
+  "name": "neographstack",
   "version": "1.0.0",
-  "description": "A full stack app using neo4j database, graphql and react/nextjs",
-  "main": ".",
+  "description": "Neo4j and Graphql fullstack boilerplate",
+  "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Steven Saunders - Nonovium",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperSuperStore/neoGraphStack.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^6.2.1",
-    "dotenv": "^10.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.0",
-    "execa": "^5.1.1",
-    "husky": "^7.0.2",
-    "lint-staged": "^11.1.2",
-    "prettier": "^2.4.1",
-    "prettier-eslint-cli": "^5.0.1"
+  "bugs": {
+    "url": "https://github.com/SuperSuperStore/neoGraphStack/issues"
+  },
+  "homepage": "https://github.com/SuperSuperStore/neoGraphStack#readme",
+  "dependencies": {
+    "@neo4j/graphql": "^2.2.0",
+    "apollo-server": "^3.3.0",
+    "graphql": "15.5.1",
+    "neo4j-driver": "^4.3.3"
   }
 }
