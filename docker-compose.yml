@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  neo4j:
+    # Later builds are available but are not compatible with the spatial plugin
+    build: ./neo4j/v4.2.3
+    container_name: "neo4j-4-2-3"
+    ports:
+      - 7474:7474 # HTTP endpoint
+      - 7473:7473 # HTTPS endpoint
+      - 7687:7687 # Bolt endpoint
+    environment:
+      - DB_HOST=localhost
+      - DB_PORT=7474
+      - DB_USER=neo4j
+      - DB_PASSWORD=letmein
+      - NEO4J_dbms_security_procedures_unrestricted=jwt.sercurity.*,apoc.*, gds.*,spatial.*
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_uuid_enabled=true
+      - NEO4J_dbms_db_timezone=SYSTEM
+    volumes:
+      - ./neo4j/vol/data:/data
+      - ./neo4j/vol/logs:/logs
+      - ./neo4j/vol/plugins:/plugins
+      - ./neo4j/vol/import:/var/lib/neo4j/import
+  
+  api:
+    build: ./api
+    ports:
+      - 4001:4001
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=letmein
+      - GRAPHQL_LISTEN_PORT=4001
+      - GRAPHQL_URI=http://localhost:4001/graphql
+
+    links:
+      - neo4j
+    depends_on:
+      - neo4j

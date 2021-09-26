@@ -1,8 +1,8 @@
 {
-  "name": "neographstack",
-  "version": "1.0.0",
-  "description": "Neo4j and Graphql fullstack boilerplate",
-  "main": "index.js",
+  "name": "neographstack-api",
+  "version": "1.0.1",
+  "description": "neoGraphStack API - Neo4j and Graphql fullstack boilerplate",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
