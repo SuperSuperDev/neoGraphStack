@@ -1,7 +1,7 @@
 {
   "name": "neographstack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Neo4j and Graphql fullstack boilerplate with Spatial",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,29 @@
   "bugs": {
     "url": "https://github.com/SuperSuperStore/neoGraphStack/issues"
   },
-  "homepage": "https://github.com/SuperSuperStore/neoGraphStack#readme"
+  "homepage": "https://github.com/SuperSuperStore/neoGraphStack#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.0",
+    "execa": "^5.1.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.1",
+    "prettier-eslint-cli": "^5.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
 }
