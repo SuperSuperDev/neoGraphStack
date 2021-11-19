@@ -4,7 +4,9 @@
   "description": "neoGraphStack API - Neo4j and Graphql fullstack boilerplate",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node build/index.js",
+    "build": "babel src --out-dir build && shx cp .env build 2>/dev/null || : && shx cp src/schema.graphql build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,28 @@
     "@neo4j/graphql": "^2.2.0",
     "apollo-server": "^3.3.0",
     "graphql": "15.5.1",
-    "neo4j-driver": "^4.3.3"
+    "neo4j-driver": "^4.3.3",
+    "@apollo/client": "^3.2.5",
+    "apollo-server-lambda": "^2.19.0",
+    "csv-parse": "^4.10.1",
+    "dotenv": "^7.0.0",
+    "node-fetch": "^2.6.0",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/runtime-corejs3": "^7.9.2",
+    "babel-plugin-auto-import": "^1.0.5",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "cross-env": "^7.0.2",
+    "nodemon": "^1.19.1",
+    "shx": "^0.3.2"
   }
 }
