@@ -1,0 +1,20 @@
+scalar Point
+scalar DateTime
+scalar PointInput
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  sites: [Site] @relationship(type: "ADDED_SITE", direction: OUT)
+}
+
+type Site {
+  id: ID!
+  url: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  user: User @relationship(type: "ADDED_SITE", direction: IN)
+}

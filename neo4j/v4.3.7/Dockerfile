@@ -1,16 +1,15 @@
+
 ARG VERSION
 ARG DB_USER
 ARG DB_PASSWORD
 ARG DB_AUTH
 
-# Official Neo4j Docker Images available at https://hub.docker.com/_/neo4j
-FROM neo4j:$VERSION
-
+FROM neo4j:${VERSION}
 # Install curl explicitly; it is no longer included in Neo4j base images
-RUN apt-get update; apt-get install curl -y
+RUN apt-get update && apt-get install curl -y
 
 # Specify the user/password for your Neo4j database
-ENV NEO4J_AUTH=$DB_AUTH
+ENV NEO4J_AUTH=${DB_AUTH}
 #$DB_USER\/$DB_PASSWORD
 #neo4j/letmein
 
@@ -18,8 +17,8 @@ ENV NEO4J_AUTH=$DB_AUTH
 # tasks in areas like data integration, graph algorithms or data conversion.
 # https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases
 ENV APOC_VERSION=4.3.0.4
-ENV APOC_URI https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/${APOC_VERSION}/apoc-${APOC_VERSION}-all.jar
-RUN sh -c 'cd /var/lib/neo4j/plugins && curl -L -O "${APOC_URI}"'
+ENV APOC_URI=https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/${APOC_VERSION}/apoc-${APOC_VERSION}-all.jar
+RUN sh -c 'cd /var/lib/neo4j/plugins && curl -L -O ${APOC_URI}'
 
 # The Spatial Library (neo4j spatial) is a library for working with geospatial data.
 # https://github.com/neo4j-contrib/spatial/releases/tag/0.28.0-neo4j-4.2.3

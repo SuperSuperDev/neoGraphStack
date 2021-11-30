@@ -28,15 +28,15 @@ wget --quiet --tries=10 --waitretry=10 -O /dev/null http://${DB_HOST}:${DB_PORT}
 log_info "Neo4j has started 🤓"
 
 # Import data
-log_info  "Loading and importing Cypher file(s)..."
+# log_info  "Loading and importing Cypher file(s)..."
 
-for cypherFile in /var/lib/neo4j/import/*.cypher; do
-    log_info "Processing ${cypherFile}..."
-    contents=$(cat ${cypherFile})
-    cat ${cypherFile} | cypher-shell -u ${DB_USER} -p ${DB_PASSWORD} --format plain
-done
+# for cypherFile in /var/lib/neo4j/import/*.cypher; do
+#     log_info "Processing ${cypherFile}..."
+#     contents=$(cat ${cypherFile})
+#     cat ${cypherFile} | cypher-shell -u ${DB_USER} -p ${DB_PASSWORD} --format plain
+# done
 
-log_info  "Finished loading data."
+# log_info  "Finished loading data."
 
 # now we bring the primary process back into the foreground
 # and leave it there
